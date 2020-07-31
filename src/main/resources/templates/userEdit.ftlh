@@ -18,4 +18,9 @@ User editor
         <input type="hidden" value="${_csrf.token}" name="_csrf">
         <button type="submit">Save changes</button>
     </form>
+    <div>
+    <form action="/user?" method="get">
+        <input type="submit" value="Back"/>
+    </form>
+    </div>
 </@c.page>

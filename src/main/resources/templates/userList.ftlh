@@ -21,4 +21,9 @@
     </#list>
     </tbody>
 </table>
+    <div>
+        <form action="/main" method="get">
+            <input type="submit" value="Back"/>
+        </form>
+    </div>
 </@c.page>

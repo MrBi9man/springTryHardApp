@@ -10,5 +10,14 @@
         <property name="serverTimezone" value="Europe/Moscow" />
       </driver-properties>
     </data-source>
+    <data-source source="LOCAL" name="tryHardSchema@localhost" uuid="0e8b3ebf-9263-4a97-aad0-2eadee0666fc">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost:3306/tryHardSchema</jdbc-url>
+      <driver-properties>
+        <property name="serverTimezone" value="Europe/Moscow" />
+      </driver-properties>
+    </data-source>
   </component>
 </project>
