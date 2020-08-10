@@ -1,7 +1,19 @@
 <#macro login path>
     <form action="${path}" method="post">
-        <div><label> User Name : <input type="text" name="username"/> </label></div>
-        <div><label> Password: <input type="password" name="password"/> </label></div>
+        <div class ="form-group row">
+            <label class="col-sm-2 col-form-label">User Name :</label>
+            <div class="col-sm-6">
+                <input type="text" name="username" aria-describedby="emailHelp" class="form-control" placeholder="User name"/>
+                <small id="emailHelp" class="form-text text-muted">Enter your user name here.</small>
+            </div>
+        </div>
+        <div class ="form-group row">
+            <label class="col-sm-2 col-form-label"> Password: </label>
+            <div class="col-sm-6">
+                <input type="password" name="password" aria-describedby="passHelp" class="form-control" placeholder="Password"/>
+                <small id="passHelp" class="form-text text-muted">Enter your password here.</small>
+            </div>
+        </div>
         <input type="hidden" name="_csrf" value="${_csrf.token}"/>
         <div><input type="submit" value="Sign In"/></div>
     </form>
