@@ -1,39 +1,44 @@
-<#--commented sections are mustach legacy-->
 
-<#--<html>-->
-
-<#--<body>-->
 <#import "parts/common.ftlh" as c>
-<#import "parts/login.ftlh" as l>
 
 <@c.page>
-    <div>
-<#--        <form action="/logout" method="post">-->
-<#--            <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>-->
-<#--            <input type="submit" value="Sign Out"/>-->
-<#--        </form>-->
-        <@l.logout/>
 
-    </div>
-    <div>
-        <form action="/user" method="get">
-            <input type="submit" value="List of all users"/>
+<div class="form-row">
+    <div class="form-group col-md-6">
+        <form method="get" action="/main" class="form-inline">
+            <input type="text" name="filter" class="form-control" value="${filter!}" placeholder="Find by tag">
+            <button class="btn btn-outline-primary ml-3" type="submit">Find</button>
         </form>
     </div>
-    <div>
-        <form method="post" enctype="multipart/form-data">
-            <input type="text" name="text" placeholder="Vvedite text">
-            <input type="text" name="tag" placeholder="Tags">
-            <input type="file" name="file">
-            <input type="hidden" name="_csrf" value="${_csrf.token}"/>
-            <button type="submit">Sohtanit' soobshenie</button>
-        </form>
+</div>
+
+    <a class="btn btn-outline-primary mb-3" data-toggle="collapse" href="#addNewNoteForm" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Add new note
+    </a>
+
+    <div class="collapse" id="addNewNoteForm">
+        <div class="form-group mt-3">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="text" placeholder="Note text">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" name="tag" placeholder="Tags">
+                </div>
+                <div class="form-group">
+                    <div class="custom-file">
+                        <input type="file" name="file" id="customFile">
+                        <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                </div>
+                <input type="hidden" name="_csrf" value="${_csrf.token}"/>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-outline-primary" >Save note</button>
+                </div>
+            </form>
+        </div>
     </div>
-    <div>Messages list</div>
-    <form method="get" action="/main">
-        <input type="text" name="filter" value="${filter!}">
-                <button type="submit">find</button>
-    </form>
+
 <#list messages as message>
 <div>
     <b>${message.id}}</b>
@@ -48,15 +53,7 @@
     </div>
 </div>
     <#else>
-        No messages
+        No notes
 </#list>
-<#--    {{#messages}}-->
-<#--        <b>{{id}}</b>-->
-<#--        <span>{{text}}</span>-->
-<#--        <i>{{tag}}</i>-->
-<#--        <strong>{{authorName}}</strong>-->
-<#--        <br>-->
-<#--    {{/messages}}-->
-<#--</body>-->
-<#--</html>-->
+
 </@c.page>

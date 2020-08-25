@@ -1,28 +1,13 @@
-<!--<!DOCTYPE html>-->
-<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
-<!--<head>-->
-<!--    <title>Spring Security Example </title>-->
-<!--</head>-->
-<!--<body>-->
 
 <#import "parts/common.ftlh" as c>
 <#import "parts/login.ftlh" as l>
+
 <@c.page>
 
-Add new user
-${message!}
-<@l.login "/registration" />
+    <div class="mb-3"><strong>Add new user</strong></div>
 
-<!--{{#message}}-->
-<!--    {{message}}-->
-<!--{{/message}}-->
-<!--<form action="/registration" method="post">-->
-<!--    <div><label> User Name : <input type="text" name="username"/> </label></div>-->
-<!--    <div><label> Password: <input type="password" name="password"/> </label></div>-->
-<!--    <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>-->
-<!--    <div><input type="submit" value="Register new user"/></div>-->
-<!--</form>-->
-<!--</body>-->
-<!--</html>-->
+${message!}
+
+<@l.login "/registration" true />
 
 </@c.page>
